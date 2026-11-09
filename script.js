@@ -495,8 +495,10 @@ async function showResult() {
 
     try {
         const { error: saveError } = await supabaseClient
-            .from("leaderboard")
-            .insert([{ name: playerName, score: score }]);
+    .rpc("save_score", {
+        p_name: playerName,
+        p_score: score
+    });
 
         if (saveError) throw saveError;
 
