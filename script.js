@@ -1,4 +1,16 @@
+function escapeHTML(text) {
+    return String(text).replace(/[&<>"']/g, function(char) {
+        const entities = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        };
 
+        return entities[char];
+    });
+}
 const quizCard = document.getElementById("quizCard");
 const heartsContainer = document.getElementById("hearts");
 
@@ -248,12 +260,12 @@ function showWelcome() {
 
 // LEVEL TRANSITION SCREENS
 
-function showTransition(level) {
+
     let title = "";
     let message = "";
     let character = "";
     let buttonText = "";
-
+  function showTransition(level) {
     if (level === 0) {
         title = "Are You Ready?";
         message = "Let's start easy! Time to see how well you know me.";
