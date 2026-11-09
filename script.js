@@ -549,6 +549,7 @@ data.map((person, index) => {
 
     } catch (error) {
         console.error(error);
+        console.error("SUPABASE ERROR:", error.message, error);
 
         document.getElementById("saveStatus").textContent =
             "Score could not be saved. Please try again later.";
